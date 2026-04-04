@@ -22,13 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY", "fallback-secret")
-DEBUG = os.environ.get("DEBUG", "False") == "True"
+DEBUG = "True"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True # Removed hardcoded DEBUG=True
 
 
-ALLOWED_HOSTS = ["https://projects-main-d9550e3.kuberns.cloud", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://django-main-a7ec857.kuberns.cloud", "https://projects-main-d9550e3.kuberns.cloud"
@@ -138,3 +138,4 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
