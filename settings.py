@@ -36,7 +36,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = [os.environ.get("ALLOWED_ORIGINS", "https://django-main-a7ec857.kuberns.cloud").rstrip("/")]
+CSRF_TRUSTED_ORIGINS = ["https://web-production-2bf6d.up.railway.app"]
 
 
 
