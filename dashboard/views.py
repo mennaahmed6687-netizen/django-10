@@ -3,15 +3,15 @@ from django.http import HttpResponse
 from rest_framework import viewsets
 from .models import News, Event, Match, User
 from .serializers import NewsSerializer, UserSerializer, EventSerializer, SportSerializer
-def home(request):
-    return HttpResponse("Hello, Admin!")
+from .models import User, Event , News, Match
+from .serializers import UserSerializer
+from django.shortcuts import redirect
 # Create your views here.
 
 # dashboard/views.py
-from rest_framework import viewsets
-from .models import User
-from .serializers import UserSerializer
 
+def home(request):
+    return redirect("/admin/login/")
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
