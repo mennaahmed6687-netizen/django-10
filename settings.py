@@ -34,7 +34,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://django-main-a7ec857.kuberns.cloud", "https://projects-main-d9550e3.kuberns.cloud"
 ]
 
-ALLOWED_HOSTS = [h for h in os.environ.get("ALLOWED_HOSTS", "").replace("https://", "").replace("http://", "").split(",") if h] + ["localhost", "127.0.0.1", "0.0.0.0"]
+ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [os.environ.get("ALLOWED_ORIGINS", "https://django-main-a7ec857.kuberns.cloud").rstrip("/")]
 
