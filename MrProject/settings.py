@@ -25,13 +25,19 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "fallback-secret")
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True # Removed hardcoded DEBUG=True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ["https://projects-main-d9550e3.kuberns.cloud", "localhost", "127.0.0.1"]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://django-main-a7ec857.kuberns.cloud", "https://projects-main-d9550e3.kuberns.cloud"
 ]
+=======
+ALLOWED_HOSTS = [h for h in os.environ.get("ALLOWED_HOSTS", "").replace("https://", "").replace("http://", "").split(",") if h] + ["localhost", "127.0.0.1", "0.0.0.0"]
+
+CSRF_TRUSTED_ORIGINS = [os.environ.get("ALLOWED_ORIGINS", "https://django-main-a7ec857.kuberns.cloud").rstrip("/")]
+>>>>>>> 89b36308692fa49c7928d6f793d25b76e1fad2f2
 
 
 # Application definition
@@ -82,10 +88,11 @@ WSGI_APPLICATION = 'MrProject.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
 
 
