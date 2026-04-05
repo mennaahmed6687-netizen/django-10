@@ -34,7 +34,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://django-main-a7ec857.kuberns.cloud", "https://projects-main-d9550e3.kuberns.cloud"
 ]
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["web-production-2bf6d.up.railway.app"]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://web-production-2bf6d.up.railway.app',
