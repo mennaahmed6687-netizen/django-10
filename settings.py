@@ -27,7 +27,7 @@ DEBUG = "True"
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True # Removed hardcoded DEBUG=True
 
-ALLOWED_HOSTS = ['web-production-2bf6d.up.railway.app', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ["*"]
 
 
 
@@ -83,12 +83,8 @@ WSGI_APPLICATION = 'MrProject.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
+       'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     
-        'default': dj_database_url.config(
-        default=os.environ.get("DATABASE_URL"),
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
 }
 
 
@@ -126,9 +122,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATIC_URL = 'static/'
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
