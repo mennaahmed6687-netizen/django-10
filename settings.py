@@ -28,7 +28,7 @@ DEBUG = os.environ.get("DEBUG", "False") == "True"
 # DEBUG = True # Removed hardcoded DEBUG=True
 
 
-ALLOWED_HOSTS = [ "localhost", "127.0.0.1","web-production-2bf6d.up.railway.app"]
+ALLOWED_HOSTS = [ "*"]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://django-main-a7ec857.kuberns.cloud", "https://projects-main-d9550e3.kuberns.cloud"
