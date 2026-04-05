@@ -29,8 +29,7 @@ DEBUG = "True"
 ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://web-production-2bf6d.up.railway.app",
-    "https://*.railway.app",
+    "https://web-production-2bf6d.up.railway.app"
 ]
 
 
