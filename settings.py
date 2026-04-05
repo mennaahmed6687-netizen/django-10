@@ -26,13 +26,11 @@ DEBUG = "True"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True # Removed hardcoded DEBUG=True
-
-ALLOWED_HOSTS = ["web-production-2bf6d.up.railway.app"]
-
-
+ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://web-production-2bf6d.up.railway.app",
+    "https://*.railway.app",
 ]
 
 
